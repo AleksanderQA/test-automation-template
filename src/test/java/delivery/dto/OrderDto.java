@@ -8,12 +8,12 @@ import lombok.Builder;
 
 public class OrderDto {
 
-    String status;
-    int courierId;
-    String customerName;
-    String customerPhone;
-    String comment;
-    long id;
+    private String status;
+    private int courierId;
+    private String customerName;
+    private String customerPhone;
+    private String comment;
+    private long id;
 
 
     public static OrderDto createRandomOrderAndFixedOrderStatus() {

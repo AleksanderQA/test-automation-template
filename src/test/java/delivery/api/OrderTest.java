@@ -12,7 +12,7 @@ public class OrderTest extends BaseSetupApi {
     @Test
     void getOrderInformationAndCheckResponse() {
 
-        Response response = ApiClient.getOrders(getAuthenticatedRequestSpecification() );
+        Response response = ApiClient.getOrders(getAuthenticatedRequestSpecification());
 
         Assertions.assertAll("Test description",
                 () -> Assertions.assertEquals(HttpStatus.SC_OK, response.getStatusCode(), "Status code is OK")
