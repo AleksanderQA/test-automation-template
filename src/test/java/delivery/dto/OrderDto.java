@@ -2,9 +2,13 @@ package delivery.dto;
 
 import delivery.utils.RandomDataGenerator;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Builder
+@Getter
+@Setter
 
 public class OrderDto {
 
@@ -16,7 +20,7 @@ public class OrderDto {
     private long id;
 
 
-    public static OrderDto createRandomOrderAndFixedOrderStatus() {
+    public static OrderDto createRandomOrderAndFixedOrderStatusOpen() {
         return OrderDto.builder()
                 .customerName(RandomDataGenerator.generateName())
                 .customerPhone(RandomDataGenerator.generatePhoneNumber())
@@ -28,11 +32,11 @@ public class OrderDto {
     }
     public static OrderDto createRandomOrderWithRandomStatus() {
         return OrderDto.builder()
-                .customerName(RandomDataGenerator.generateName())
-                .customerPhone(RandomDataGenerator.generatePhoneNumber())
-                .comment(RandomDataGenerator.generateComment())
-                .courierId(RandomDataGenerator.generateCourierId())
-                .id(RandomDataGenerator.generateOrderId())
+                .customerName("Alex")
+                .customerPhone("123456789")
+                .comment("Hello All")
+                .courierId(4)
+                .id(6)
                 .status(RandomDataGenerator.generateRandomOrderStatus())
                 .build();
     }
