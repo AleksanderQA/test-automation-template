@@ -1,4 +1,5 @@
 package delivery.utils;
+
 import com.google.gson.Gson;
 import delivery.api.BaseSetupApi;
 import delivery.dto.LoginDto;
@@ -8,6 +9,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
+
 
 public class ApiClient extends BaseSetupApi {
     public static Response getOrders(RequestSpecification spec) {
@@ -39,11 +41,10 @@ public class ApiClient extends BaseSetupApi {
                 .asString();
     }
 
-    public static Response createRandomOrder(RequestSpecification spec) {
+    public static Response createRandomOrder(RequestSpecification spec, OrderDto orderDto) {
+        Gson gson = new Gson();
 
-        OrderDto orderDto = OrderDto.createRandomOrderAndFixedOrderStatus();
-
-        return given()
+        Response response = given()
                 .spec(spec)
                 .log()
                 .all()
@@ -55,11 +56,15 @@ public class ApiClient extends BaseSetupApi {
                 .all()
                 .extract()
                 .response();
+         OrderDto receivedOrder = gson.fromJson(response.asString(), OrderDto.class);
+         return response;
     }
-    public static Response createRandomOrderStatus(RequestSpecification spec) {
 
-        OrderDto orderDto = OrderDto.createRandomOrderWithRandomStatus();
-        return given()
+    public static Response createRandomOrderStatus(RequestSpecification spec, OrderDto orderDto) {
+
+        Gson gson = new Gson();
+
+        Response response = given()
                 .spec(spec)
                 .log()
                 .all()
@@ -71,6 +76,26 @@ public class ApiClient extends BaseSetupApi {
                 .all()
                 .extract()
                 .response();
+        OrderDto receivedOrder = gson.fromJson(response.asString(), OrderDto.class);
+
+        return response;
+    }
+
+    public static Response deleteOrderById(RequestSpecification spec, int orderId) {
+
+
+        return  given()
+                .spec(spec)
+                .log()
+                .all()
+                .contentType(ContentType.JSON)
+                .delete("orders/"+ orderId)
+                .then()
+                .log()
+                .all()
+                .extract()
+                .response();
+
     }
 }
 

@@ -7,49 +7,28 @@ import java.util.Random;
 public class RandomDataGenerator {
 
     public static String  generateName (){
-        int length = 12;
-        boolean useLetters = true;
-        boolean useNumbers = false;
-        String generateCustomerName = RandomStringUtils.random(length,useLetters,useNumbers);
-        return generateCustomerName;
+        return RandomStringUtils.randomAlphabetic(12);
+    }
 
-    }
     public static String generatePhoneNumber(){
-        int length = 8;
-        boolean useLetters = false;
-        boolean useNumbers = true;
-        String generateCustomerPhoneNumber = RandomStringUtils.random(length,useLetters,useNumbers);
-        return generateCustomerPhoneNumber;
+        return  RandomStringUtils.randomNumeric(10);
     }
+
     public static String generateComment(){
-        int length = 20;
-        boolean useLetters = true;
-        boolean useNumbers = true;
-        String generateCustomerComment = RandomStringUtils.random(length,useLetters,useNumbers);
-        return generateCustomerComment;
+        return RandomStringUtils.randomAlphanumeric(20);
     }
+
     public static int generateCourierId(){
-        int length = 3;
-        boolean useLetters = false;
-        boolean useNumbers = true;
-        int generateCourierId = Integer.parseInt(RandomStringUtils.random(length,useLetters,useNumbers));
-        return generateCourierId;
+        return Integer.parseInt(RandomStringUtils.randomNumeric(2));
     }
+
     public static long generateOrderId(){
-        int length = 3;
-        boolean useLetters = false;
-        boolean useNumbers = true;
-        long generateOrderId = Long.parseLong(RandomStringUtils.random(length,useLetters,useNumbers));
-        return generateOrderId;
+        return Long.parseLong(RandomStringUtils.randomNumeric(2));
     }
+
     public static String generateRandomOrderStatus() {
         String[] orderStatuses = {"OPEN", "ACCEPTED", "INPROGRESS", "DELIVERED"};
-        int randomIndex = new Random().nextInt(orderStatuses.length);
-        return orderStatuses[randomIndex];
+        int randomStatus = new Random().nextInt(orderStatuses.length);
+        return orderStatuses[randomStatus];
     }
-
 }
-
-
-
-
