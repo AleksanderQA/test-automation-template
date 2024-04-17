@@ -7,15 +7,15 @@ import java.util.Random;
 public class RandomDataGenerator {
 
     public static String  generateName (){
-        return RandomStringUtils.randomAlphabetic(12);
+        return RandomStringUtils.randomAlphabetic(2,30);
     }
 
     public static String generatePhoneNumber(){
-        return  RandomStringUtils.randomNumeric(10);
+        return  RandomStringUtils.randomNumeric(6,10);
     }
 
     public static String generateComment(){
-        return RandomStringUtils.randomAlphanumeric(20);
+        return RandomStringUtils.randomAlphanumeric(10,20);
     }
 
     public static int generateCourierId(){
@@ -31,4 +31,20 @@ public class RandomDataGenerator {
         int randomStatus = new Random().nextInt(orderStatuses.length);
         return orderStatuses[randomStatus];
     }
+
+
+
+
+    public static String generateUsername(){
+        return RandomStringUtils.randomAlphabetic(2,30);
+    }
+    public static String generateOrderUsername(){
+        return RandomStringUtils.randomAlphabetic(2,12);
+    }
+
+    public static String generatePassword(){
+        return RandomStringUtils.randomAlphanumeric(8,30);
+    }
+
 }
+

@@ -40,6 +40,7 @@ mvn clean test -Dtest=TestClassName
 |---|-----------------------------------------------------|-------------------------------------------------------------------------|
 | 1 | Username field input                                | //*[@data-name='username-input']                                        |
 | 2 | Password field input                                | //*[@data-name='password-input']                                        |
+| 2 | SignIn button                                       | //*[@data-name = 'signIn-button']                                       |
 | 3 | Presence of a username entry field                  | //input[@id='username']                                                 |
 | 3 | Username enter type is Text                         | //input[@type ='text']                                                  |
 | 4 | Presence of a password entry field                  | //input[@id='password']                                                 |
