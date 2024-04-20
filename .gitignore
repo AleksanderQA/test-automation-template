@@ -3,6 +3,6 @@ ls# Idea files
 *.iml
 
 # Maven files
-target
-.allure
-allure-results
+
+
+
